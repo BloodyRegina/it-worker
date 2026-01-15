@@ -1,27 +1,37 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import React from 'react';
-import { jobs } from 'data/jobs';
+import { View, Text, TouchableOpacity } from 'react-native'
+import React from 'react'
 
-const JobCard = () => {
+const JobCard = ({ job, onPress}: any) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="mb-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-      <Text className="mb-1 text-lg font-bold text-gray-800">{jobs.title}</Text>
-      <Text className="mb-3 text-sm text-gray-600">{jobs.company}</Text>
-
-      <View className="mb-3 flex-row flex-wrap gap-2">
-        <View className="rounded-full bg-blue-100 px-3 py-1">
-          <Text className="text-xs font-medium text-blue-700">{jobs.location}</Text>
+      className="bg-white p-4 rounded-xl mb-3 shadow-sm border border-gray-200"
+    >
+      <Text className="text-lg font-bold text-gray-800 mb-1">
+        {job.title}
+      </Text>
+      <Text className="text-sm text-gray-600 mb-3">
+        {job.company}
+      </Text>
+     
+      <View className="flex-row flex-wrap gap-2 mb-3">
+        <View className="bg-blue-100 px-3 py-1 rounded-full">
+          <Text className="text-xs text-blue-700 font-medium">
+            {job.location}
+          </Text>
         </View>
-        <View className="rounded-full bg-green-100 px-3 py-1">
-          <Text className="text-xs font-medium text-green-700">{jobs.type}</Text>
+        <View className="bg-green-100 px-3 py-1 rounded-full">
+          <Text className="text-xs text-green-700 font-medium">
+            {job.type}
+          </Text>
         </View>
       </View>
-
-      <Text className="text-sm font-semibold text-orange-600">💰 {jobs.salary}</Text>
+     
+      <Text className="text-sm font-semibold text-orange-600">
+        💰 {job.salary}
+      </Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-export default JobCard;
+export default JobCard
